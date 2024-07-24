@@ -9,6 +9,7 @@ export type Order = {
 export class OrderModel {
   async create(order: Order): Promise<Order> {
     const connection = await client.connect();
+    console.log({ order });
     const sqlQuery =
       "INSERT INTO orders (user_id, status) VALUES ($1, $2) RETURNING *";
     const result = await connection.query(sqlQuery, [

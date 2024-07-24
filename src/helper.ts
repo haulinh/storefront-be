@@ -1,10 +1,10 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import jwt, { Secret } from "jsonwebtoken";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-export const verifyAuthToken = (req: Request, res: Response, next) => {
+export const verifyAuthToken = (req: Request, res: Response, next: NextFunction) => {
   try {
     const authorizationHeader = req.headers.authorization;
     if (authorizationHeader) {

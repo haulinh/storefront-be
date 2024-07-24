@@ -31,8 +31,7 @@ const create = async (req: Request, res: Response): Promise<void> => {
   try {
     const user = req.body;
     const newUser = await userModel.create(user);
-    const token = jwt.sign({ newUser }, process.env.TOKEN_SECRET as string);
-    res.status(201).json(token);
+    res.status(201).json(newUser);
   } catch (err) {
     res.status(500).json(err);
   }

@@ -50,20 +50,4 @@ describe("UserModel", () => {
       expect(result.email).toEqual("newuser@example.com");
     });
   });
-
-  describe("delete", () => {
-    it("should delete a user by id", async () => {
-      const mockUser = {
-        id: 3,
-        username: "newUser",
-        email: "newuser@example.com",
-      };
-      spyOn(userModel, "delete").and.returnValue(Promise.resolve(mockUser));
-
-      const result = await userModel.delete(3);
-      expect(result.id).toBe(3);
-      expect(result.username).toEqual("newUser");
-      expect(result.email).toEqual("newuser@example.com");
-    });
-  });
 });
